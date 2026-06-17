@@ -1,0 +1,22 @@
+---
+title: "Duc Thai Tran"
+image: images/profile.jpeg
+about:
+  template: trestles
+  image-shape: rounded
+  links:
+    - icon: envelope
+      text: Email
+      href: mailto:ducthai.tran@mq.edu.au
+---
+
+# Duc Thai Tran
+
+PhD Candidate in Marketing  
+Macquarie Business School (MQBS)
+
+An in-progress polymath, documentary and street photographer, piano player, and advertising researcher. I study advertising strategy and effectiveness, storytelling, and brand identity. My research focuses on the creative journey in producing ads, how stories are developed, and how to maintain brand identity’s clarity throughout the whole process.
+
+Producing advertising requires craftsmanship, attention to detail, and open-mindedness. I try my very best to infuse these characteristics into my photography, my musical interpretations, and my writing.
+
+
