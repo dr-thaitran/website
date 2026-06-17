@@ -5,7 +5,7 @@ project:
 website:
   title: "Duc Thai Tran"
   navbar:
-    left:
+    right:
       - href: index.qmd
         text: Home
       - href: research.qmd
@@ -16,7 +16,6 @@ website:
         text: Photos
       - href: videos.qmd
         text: Videos
-    right:
       - icon: envelope
         href: mailto:your.email@students.mq.edu.au
 
