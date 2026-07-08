@@ -16,7 +16,7 @@ website:
         href: personal.qmd
     right:
       - icon: envelope
-        href: "mailto:you@example.com"
+        href: "mailto:ducthai.tran@outlook.com"
         aria-label: Email
       - icon: github
         href: "https://github.com/dr-thaitran"
