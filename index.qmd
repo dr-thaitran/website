@@ -17,7 +17,6 @@ pagetitle: "Duc Thai Tran"
 </section>
 
 <section class="block" id="about">
-  <p class="eyebrow"><span class="num">01</span> About</p>
   <p class="block__lead">An in-progress polymath — documentary and street photographer, piano player, and advertising researcher.</p>
   <p>I study advertising strategy and effectiveness, storytelling, and brand identity. My research focuses on the creative journey in producing ads, how stories are developed, and how to maintain brand identity's clarity throughout the whole process.</p>
   <p style="margin-top:2rem;">
@@ -29,7 +28,7 @@ pagetitle: "Duc Thai Tran"
 
 <footer class="site-foot">
   <span>Duc Thai Tran — Sydney</span>
-  <span><a href="mailto:you@example.com">you@example.com</a></span>
+  <span><a href="mailto:ducthai.tran@outlook.com">ducthai.tran@outlook.com</a></span>
   <span>© 2026</span>
 </footer>
 ```
