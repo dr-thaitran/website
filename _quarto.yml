@@ -1,28 +1,33 @@
 project:
   type: website
-  output-dir: docs
+  output-dir: _site
 
 website:
   title: "Duc Thai Tran"
   navbar:
+    background: light
+    pinned: true
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Research"
+        href: research.qmd
+      - text: "Personal works"
+        href: personal.qmd
     right:
-      - href: index.qmd
-        text: Home
-      - href: research.qmd
-        text: Research
-      - href: posts.qmd
-        text: Writing
-      - href: photos.qmd
-        text: Photos
-      - href: videos.qmd
-        text: Videos
       - icon: envelope
-        href: mailto:your.email@students.mq.edu.au
+        href: "mailto:you@example.com"
+        aria-label: Email
+      - icon: github
+        href: "https://github.com/dr-thaitran"
+        aria-label: GitHub
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
-    mainfont: Georgia
-    backgroundcolor: "#E8DCB9"
-    linkcolor: "#EE7674"
+    theme: theme.scss
+    include-in-header: head.html
+    toc: false
+    page-layout: full
+    title-block-banner: false
+    grid:
+      body-width: 1180px
