@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Duc Thai Tran</title>
+<title>Photos — Duc Thai Tran – Duc Thai Tran</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -94,7 +94,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -106,7 +106,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Writings</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./photos.html"> 
+    <a class="nav-link active" href="./photos.html" aria-current="page"> 
 <span class="menu-text">Photos</span></a>
   </li>  
 </ul>
@@ -138,7 +138,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Home</h1>
+<h1 class="title">Photos</h1>
 </div>
 
 
@@ -155,33 +155,122 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section class="hero">
-  <div class="hero__text">
-    <p class="hero__eyebrow">Advertising researcher · Documentary photographer · Piano player</p>
-    <h1 class="hero__title">Duc&nbsp;Thai<br>Tran<em>.</em></h1>
-    <p class="hero__sub">Researcher and practitioner in creativity: advertising, photography, music.</p>
-    <span class="hero__cue">About me</span>
-  </div>
-  <div class="hero__media">
-    <img src="images/portrait.jpg" alt="Portrait of Duc Thai Tran">
-  </div>
+<section class="block" style="border-bottom:none; padding-bottom:.5rem;">
+  <p class="eyebrow">Photos</p>
 </section>
 
-<section class="block" id="about">
-  <p class="block__lead">An in-progress polymath — documentary and street photographer, piano player, and advertising researcher.</p>
-  <p>I study advertising strategy and effectiveness, storytelling, and brand identity. My research focuses on the creative journey in producing ads, how stories are developed, and how to maintain brand identity's clarity throughout the whole process.</p>
-  <p style="margin-top:2rem;">
-    <a class="more" href="./research.html">See the research →</a>
-    &nbsp;&nbsp;&nbsp;
-    <a class="more" href="personal.qmd">See personal works →</a>
-  </p>
+<section class="albums">
+  <button class="album album--w3" data-album="bushfire">
+    <span class="album__frame"><img src="images/albums/bushfire/cover.jpg" alt="Bushfire 2019"></span>
+    <span class="album__name">Bushfire 2019</span>
+  </button>
+  <button class="album album--w3" data-album="hanoi-rain">
+    <span class="album__frame"><img src="images/albums/hanoi-rain/cover.jpg" alt="Hanoi Rain"></span>
+    <span class="album__name">Hanoi Rain</span>
+  </button>
+  <button class="album album--w2" data-album="animals">
+    <span class="album__frame"><img src="images/albums/animals/cover.jpg" alt="Animals"></span>
+    <span class="album__name">Animals</span>
+  </button>
+  <button class="album album--w2" data-album="lived-fully">
+    <span class="album__frame"><img src="images/albums/lived-fully/cover.jpg" alt="Lived Fully"></span>
+    <span class="album__name">Lived Fully</span>
+  </button>
+  <button class="album album--w2" data-album="sleep">
+    <span class="album__frame"><img src="images/albums/sleep/cover.jpg" alt="Sleep"></span>
+    <span class="album__name">Sleep</span>
+  </button>
 </section>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="lb-title">
+  <div class="lightbox__inner">
+    <header class="lightbox__bar">
+      <div class="lightbox__head">
+        <h2 class="lightbox__title anchored" id="lb-title"></h2>
+        <p class="lightbox__desc" id="lb-desc"></p>
+      </div>
+      <button class="lightbox__close" id="lb-close" aria-label="Close album">×</button>
+    </header>
+    <div class="lightbox__grid" id="lb-grid"></div>
+  </div>
+</div>
 
 <footer class="site-foot">
   <span>Duc Thai Tran — Sydney</span>
   <span><a href="mailto:ducthai.tran@outlook.com">ducthai.tran@outlook.com</a></span>
   <span>© 2026</span>
 </footer>
+
+<script>
+(function(){
+  // ── EDIT HERE ──────────────────────────────────────────────
+  // For each album, set the description and the NUMBER of photos.
+  // Put the photos in images/albums/<album>/ named 01.jpg, 02.jpg, …
+  // (two digits: 01–09, then 10, 11, … — the cover is cover.jpg)
+  const pad = n => String(n).padStart(2,'0');
+  const seq = (dir,n) => Array.from({length:n}, (_,i)=>`images/albums/${dir}/${pad(i+1)}.jpg`);
+
+  const ALBUMS = {
+    "bushfire":    { title:"Bushfire 2019",
+      desc:"In 2019, I found myself in the path of one of Australia's most ferocious mega-blazes. These photos are a record of survival, of standing at the edge of something ancient and overwhelming, and making it out the other side.",
+      photos: seq("bushfire", 7) },
+    "hanoi-rain":  { title:"Hanoi Rain",
+      desc:"Rain has a way of washing the world down to its bones. In Hanoi, beneath skies that wept without warning, the noise of modern life softened and faded, and what remained were simply people, present and unadorned, belonging to nothing but the moment.",
+      photos: seq("hanoi-rain", 27) },
+    "animals":     { title:"Animals",
+      desc:"Whether wild or domestic, every creature carries its own quirks, its own way of moving through the world. To photograph them is to recognise that variety is not unique to us. Nature has always been generous with difference.",
+      photos: seq("animals", 19) },
+    "lived-fully": { title:"Lived Fully",
+      desc:"Some people seek stillness and solitude. Others find their joy in laughter and company. This collection is a celebration of all of it, because there is no single right way to be alive, and that is the whole point.",
+      photos: seq("lived-fully", 21) },
+    "sleep":       { title:"Sleep",
+      desc:"Sleep is the one moment we cannot perform for anyone. The posture, the place, the hour, all of it quietly tells a story about who a person truly is when no one is watching.",
+      photos: seq("sleep", 8) },
+  };
+  // ───────────────────────────────────────────────────────────
+
+  const lb    = document.getElementById('lightbox');
+  const grid  = document.getElementById('lb-grid');
+  const title = document.getElementById('lb-title');
+  const desc  = document.getElementById('lb-desc');
+  const close = document.getElementById('lb-close');
+  const inner = lb.querySelector('.lightbox__inner');
+  let scrollY = 0, lastFocus = null;
+
+  function open(id){
+    const a = ALBUMS[id]; if(!a) return;
+    title.textContent = a.title;
+    desc.textContent  = a.desc || '';
+    grid.innerHTML = a.photos.map(function(src){
+      return '<figure class="lb-photo"><img loading="lazy" src="'+src+'" alt="'+a.title+'"></figure>';
+    }).join('');
+    scrollY = window.scrollY;
+    lastFocus = document.activeElement;
+    document.body.style.top = (-scrollY)+'px';
+    document.body.classList.add('lb-locked');
+    lb.classList.add('is-open');
+    lb.setAttribute('aria-hidden','false');
+    inner.scrollTop = 0;
+    close.focus();
+    document.addEventListener('keydown', onKey);
+  }
+  function shut(){
+    lb.classList.remove('is-open');
+    lb.setAttribute('aria-hidden','true');
+    document.body.classList.remove('lb-locked');
+    document.body.style.top = '';
+    window.scrollTo(0, scrollY);
+    if(lastFocus) lastFocus.focus();
+    document.removeEventListener('keydown', onKey);
+  }
+  function onKey(e){ if(e.key === 'Escape') shut(); }
+
+  document.querySelectorAll('.album').forEach(function(btn){
+    btn.addEventListener('click', function(){ open(btn.getAttribute('data-album')); });
+  });
+  close.addEventListener('click', shut);
+})();
+</script>
 
 
 
