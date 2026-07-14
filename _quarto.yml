@@ -12,8 +12,10 @@ website:
         href: index.qmd
       - text: "Research"
         href: research.qmd
-      - text: "Personal works"
-        href: personal.qmd
+      - text: "Writings"
+        href: writings.qmd
+      - text: "Photos"
+        href: photos.qmd
     right:
       - icon: envelope
         href: "mailto:ducthai.tran@outlook.com"

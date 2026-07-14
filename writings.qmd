@@ -1,0 +1,40 @@
+---
+title: "Writings"
+pagetitle: "Writings — Duc Thai Tran"
+---
+
+```{=html}
+<section class="block" style="border-bottom:none; padding-bottom:.5rem;">
+  <p class="eyebrow">Writings</p>
+</section>
+
+<section style="padding-bottom:2rem;">
+  <div class="writing-list">
+
+    <a class="writing" href="article-1.html">
+      <span class="writing__meta">Personal essay</span>
+      <span class="writing__title">The meaning of my name (and how it shapes my life)</span>
+      <span class="writing__excerpt">On the two words I was given — knowledge and virtue — and the long work of earning them.</span>
+    </a>
+
+    <a class="writing writing--muted" href="#">
+      <span class="writing__meta">Essay · Coming soon</span>
+      <span class="writing__title">A second piece</span>
+      <span class="writing__excerpt">Placeholder — duplicate article-1 for each new article and link it here.</span>
+    </a>
+
+    <a class="writing writing--muted" href="#">
+      <span class="writing__meta">Note · Coming soon</span>
+      <span class="writing__title">A third piece</span>
+      <span class="writing__excerpt">Placeholder.</span>
+    </a>
+
+  </div>
+</section>
+
+<footer class="site-foot">
+  <span>Duc Thai Tran — Sydney</span>
+  <span><a href="mailto:ducthai.tran@outlook.com">ducthai.tran@outlook.com</a></span>
+  <span>© 2026</span>
+</footer>
+```

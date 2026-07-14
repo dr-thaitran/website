@@ -1,0 +1,46 @@
+---
+pagetitle: "The meaning of my name — Duc Thai Tran"
+---
+
+```{=html}
+<article class="article">
+  <a class="article__back" href="writings.html">← Writings</a>
+  <p class="article__kicker">Personal essay</p>
+  <h1 class="article__title">The meaning of my name (and how it shapes my life)</h1>
+  <p class="article__deck">On the two words I was given and the long journey of earning them.</p>
+</article>
+```
+
+::: {.article-body}
+
+People name their children the way they place a bet. They find someone successful. They steal that name. They hope the luck travels too. My father was different. He named me "Đức Thái" while his own mother-in-law pushed back hard. She had known a Thai who died poor and miserable. Of course, he didn't wish me to be unhappy or broke. He was not naming me after a man. He was naming me after an idea.
+
+"Thai" comes from *thông thái*. It means knowledgeable. That word became the first weight placed on my shoulders before I could even read.
+
+My parents explained that layer of meaning early. They encouraged me to read more books to live up to the name. And I did. My childhood was surrounded by books. In primary school, I would run from relative to relative firing trivia questions at them. Questions only I knew the answers to. Standing there in those living rooms, I felt tall. I felt powerful. Knowledge was power. I was certain of that.
+
+But the house I grew up in was not only full of books. It was full of music too. Being a son of a musicology professor, I was forced to study piano for a few hours every day. Then music academy arrived alongside regular school. My hours were taken even before I woke up each morning. Studying in the daytime. Piano in the afternoon and evening. No television. No playing outside. No long lazy hours with friends talking about nothing.
+
+Slowly, I lost the language of ordinary life. I would sit with people and didn't know what to say. They talked about things I had never seen. I had no words that fit. The boy who once ran freely between rooms, full of noise and questions, went quiet. He found a corner. He opened a book no one else was reading. He listened to composers whose names no one else could spell. He became a stranger at every table.
+
+I did not notice the transformation until it was already complete, long after I quit the music academy. Luckily, another form of art I had inherited from my late grandfather saved me. It was photography. Even though I'd taken many pictures before, I only started taking it seriously in Year 11. I started looking at the world carefully instead of reading about it. The light shining through small wildflowers on the pavement. The face of a stranger caught mid-laugh. The sky at the exact moment before dark. Through the lens I understood something I had missed for years. Life itself is a source of knowledge. Every hour lived with open eyes is a lesson.
+
+I had fed myself from one small garden while entire forests grew unclaimed around me. By the time I finished high school, I had found a balance. Books and living. Studying and wandering. The first half of my name finally felt earned. But the second half was harder.
+
+"Duc" comes from *đức độ*. It is an ancient word carrying umbrella meanings of virtue, righteousness, ethical behaviour and kind-hearted. Together, "Đức Thái" means a person who uses knowledge to do good things and help people. But how can I do that? I asked myself for years whether I was enough. Whether I knew enough. Whether any of what I had learned could truly serve someone else. I turned to research for answers. If I could verify a belief, test it, trace it back to its roots, then sharing it would not be arrogance. It would be a gift.
+
+Then my colleagues showed me something I had not expected. They did not come to me because of my doctorate. They came because they trusted me. Because I had lived what I was talking about. Because I had tested it myself and carried the proof in my hands. The knowledge had become something real. The name was beginning to mean something in the world. I cannot yet measure the impact. I cannot see every ripple in the water. But I believe the ripples are there.
+
+This essay does not complete the story. It does not settle the question of who I am or whether I have earned my name. It is only a record of a man figuring things out, slowly, one season at a time. I no longer chase my parents' expectations. It is my own journey now, my own name to earn. Someday, I will sit across from a child of my own and choose their name the way my father chose mine. Not after a person but an idea. And I hope that idea will carry them forward long after I am gone, the way my name has carried me.
+
+*P/s: the second meaning of "Thái" is slice, and I have been living up to that name ever since I picked up my first kitchen knife.*
+
+:::
+
+```{=html}
+<footer class="site-foot" style="margin-top:4rem;">
+  <span>Duc Thai Tran — Sydney</span>
+  <span><a href="mailto:ducthai.tran@outlook.com">ducthai.tran@outlook.com</a></span>
+  <span>© 2026</span>
+</footer>
+```
