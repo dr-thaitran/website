@@ -1,7 +1,9 @@
 project:
   type: website
   output-dir: _site
-
+  resources:
+    - images/
+    
 website:
   title: "Duc Thai Tran"
   navbar:
