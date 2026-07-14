@@ -41,7 +41,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-adc6272d8eed97987f67341ae5b12167.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-0ee61a47fbd16e9c0efd589766f63573.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -195,6 +195,14 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </div>
 
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-hidden="true">
+  <button class="viewer__close" id="v-close" aria-label="Close photo">×</button>
+  <button class="viewer__nav viewer__nav--prev" id="v-prev" aria-label="Previous photo">‹</button>
+  <button class="viewer__nav viewer__nav--next" id="v-next" aria-label="Next photo">›</button>
+  <figure class="viewer__stage figure" id="v-stage"><img id="v-img" alt="" class="figure-img"></figure>
+  <div class="viewer__count" id="v-count"></div>
+</div>
+
 <footer class="site-foot">
   <span>Duc Thai Tran — Sydney</span>
   <span><a href="mailto:ducthai.tran@outlook.com">ducthai.tran@outlook.com</a></span>
@@ -229,41 +237,92 @@ ul.task-list li input[type="checkbox"] {
   };
   // ───────────────────────────────────────────────────────────
 
-  const lb    = document.getElementById('lightbox');
-  const grid  = document.getElementById('lb-grid');
-  const title = document.getElementById('lb-title');
-  const desc  = document.getElementById('lb-desc');
-  const close = document.getElementById('lb-close');
-  const inner = lb.querySelector('.lightbox__inner');
-  let scrollY = 0, lastFocus = null;
+  // Album lightbox
+  const lb=document.getElementById('lightbox'), grid=document.getElementById('lb-grid'),
+        title=document.getElementById('lb-title'), desc=document.getElementById('lb-desc'),
+        close=document.getElementById('lb-close'), inner=lb.querySelector('.lightbox__inner');
+  // Photo viewer
+  const viewer=document.getElementById('viewer'), vImg=document.getElementById('v-img'),
+        vStage=document.getElementById('v-stage'), vCount=document.getElementById('v-count'),
+        vClose=document.getElementById('v-close'), vPrev=document.getElementById('v-prev'),
+        vNext=document.getElementById('v-next');
+
+  let scrollY=0, lastFocus=null, current=[], currentTitle='', vIndex=0;
 
   function open(id){
-    const a = ALBUMS[id]; if(!a) return;
-    title.textContent = a.title;
-    desc.textContent  = a.desc || '';
-    grid.innerHTML = a.photos.map(function(src){
-      return '<figure class="lb-photo"><img loading="lazy" src="'+src+'" alt="'+a.title+'"></figure>';
+    const a=ALBUMS[id]; if(!a) return;
+    current=a.photos; currentTitle=a.title;
+    title.textContent=a.title; desc.textContent=a.desc||'';
+    grid.innerHTML=a.photos.map(function(src,i){
+      return '<figure class="lb-photo" data-i="'+i+'"><img loading="lazy" src="'+src+'" alt="'+a.title+'"></figure>';
     }).join('');
-    scrollY = window.scrollY;
-    lastFocus = document.activeElement;
-    document.body.style.top = (-scrollY)+'px';
-    document.body.classList.add('lb-locked');
-    lb.classList.add('is-open');
-    lb.setAttribute('aria-hidden','false');
-    inner.scrollTop = 0;
-    close.focus();
+    scrollY=window.scrollY; lastFocus=document.activeElement;
+    document.body.style.top=(-scrollY)+'px'; document.body.classList.add('lb-locked');
+    lb.classList.add('is-open'); lb.setAttribute('aria-hidden','false');
+    inner.scrollTop=0; close.focus();
     document.addEventListener('keydown', onKey);
   }
   function shut(){
-    lb.classList.remove('is-open');
-    lb.setAttribute('aria-hidden','true');
-    document.body.classList.remove('lb-locked');
-    document.body.style.top = '';
+    if(viewer.classList.contains('is-open')) closeViewer();
+    lb.classList.remove('is-open'); lb.setAttribute('aria-hidden','true');
+    document.body.classList.remove('lb-locked'); document.body.style.top='';
     window.scrollTo(0, scrollY);
     if(lastFocus) lastFocus.focus();
     document.removeEventListener('keydown', onKey);
   }
-  function onKey(e){ if(e.key === 'Escape') shut(); }
+  function onKey(e){
+    if(viewer.classList.contains('is-open')) return; // viewer handles its own keys
+    if(e.key==='Escape') shut();
+  }
+
+  // ── Full-screen photo viewer ──
+  function showPhoto(i){
+    vIndex=(i+current.length)%current.length;
+    vImg.classList.remove('is-zoomed'); vImg.style.transformOrigin='center';
+    vImg.src=current[vIndex];
+    vImg.alt=currentTitle+' — '+(vIndex+1);
+    vCount.textContent=(vIndex+1)+' / '+current.length;
+  }
+  function openViewer(i){
+    showPhoto(i);
+    viewer.classList.add('is-open'); viewer.setAttribute('aria-hidden','false');
+    vClose.focus();
+    document.addEventListener('keydown', vKey);
+  }
+  function closeViewer(){
+    viewer.classList.remove('is-open'); viewer.setAttribute('aria-hidden','true');
+    vImg.classList.remove('is-zoomed');
+    document.removeEventListener('keydown', vKey);
+  }
+  function vKey(e){
+    if(e.key==='Escape'){ e.stopPropagation(); closeViewer(); }
+    else if(e.key==='ArrowLeft') showPhoto(vIndex-1);
+    else if(e.key==='ArrowRight') showPhoto(vIndex+1);
+  }
+
+  // open viewer when a grid photo is clicked
+  grid.addEventListener('click', function(e){
+    const fig=e.target.closest('.lb-photo'); if(fig) openViewer(+fig.dataset.i);
+  });
+  vPrev.addEventListener('click', function(e){ e.stopPropagation(); showPhoto(vIndex-1); });
+  vNext.addEventListener('click', function(e){ e.stopPropagation(); showPhoto(vIndex+1); });
+  vClose.addEventListener('click', function(e){ e.stopPropagation(); closeViewer(); });
+  // click backdrop (outside the image) closes
+  viewer.addEventListener('click', function(e){
+    if(e.target===viewer || e.target===vStage) closeViewer();
+  });
+  // click image toggles a closer zoom; move cursor to pan while zoomed
+  vImg.addEventListener('click', function(e){
+    e.stopPropagation();
+    vImg.classList.toggle('is-zoomed');
+  });
+  vStage.addEventListener('mousemove', function(e){
+    if(!vImg.classList.contains('is-zoomed')) return;
+    const r=vImg.getBoundingClientRect();
+    const x=Math.min(100,Math.max(0,((e.clientX-r.left)/r.width)*100));
+    const y=Math.min(100,Math.max(0,((e.clientY-r.top)/r.height)*100));
+    vImg.style.transformOrigin=x+'% '+y+'%';
+  });
 
   document.querySelectorAll('.album').forEach(function(btn){
     btn.addEventListener('click', function(){ open(btn.getAttribute('data-album')); });
